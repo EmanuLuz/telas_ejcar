@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Conta</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="css/criarconta.css">
+</head>
+<body>
+    <form class="formulario-com-borda">
+    <h1>Criar Conta</h1><br>
+    <hr>
+    <b>Nome: </b> 
+
+    <input id="usuario" class="form-control" type="nome" placeholder="Digite seu nome:"> <br>
+
+    <b id="cpf">CPF: </b> 
+    <input id="cpf" class="form-control" type="cpf" placeholder="Digite seu CPF:"> <br>
+
+    <b>Email: </b> 
+    <div id="email" style="position: relative; display: inline-block;">
+    <i class="fa fa-envelope" style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); color: gray;"></i>
+    <input id="input" class="form-control" type="email" placeholder="      you@example.com">
+    </div>
+
+    <b>Usuário: </b> 
+    <input id="input" class="form-control" type="text" placeholder="Digite um nome de usuário:"> <br>
+
+    <b id="senha">Senha: </b> 
+    <input id="input" class="form-control" type="password" placeholder="Digite sua senha"> <br>
+
+    <b id="confirme">Confirme sua Senha: </b>
+    <input id="input" class="form-control" type="password" placeholder="Confirme sua senha"> <br>
+
+   <div class="btn-container">
+    <button class="btn btn-danger" id="criar" type="button" onclick="criarconta()">Criar Conta</button>
+
+</div>
+</form>
+</body>
+<script src="js/criarconta.js"></script>
+</html>

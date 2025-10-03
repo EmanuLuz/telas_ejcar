@@ -1,0 +1,161 @@
+    
+/* Estilos Gerais */
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 20px;
+        margin: 0;
+    }
+
+    .formulario-com-borda {
+        width: 100%;
+        max-width: 600px;
+        background: white;
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+        border-top: 5px solid #d32f2f;
+    }
+
+    /* Título e Divisor */
+    .formulario-com-borda h1 {
+        color: #d32f2f;
+        text-align: center;
+        margin-bottom: 15px;
+        font-weight: 700;
+        font-size: 32px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+    }
+
+    .formulario-com-borda hr {
+        border: none;
+        height: 2px;
+        background: linear-gradient(to right, transparent, #d32f2f, transparent);
+        margin: 20px 0 30px;
+    }
+
+    /* Labels dos Campos */
+    .formulario-com-borda b {
+        display: block;
+        color: #333;
+        margin-top: 22px;
+        margin-bottom: 10px;
+        font-weight: 600;
+        font-size: 16px;
+    }
+
+    /* Campos de Input */
+    .formulario-com-borda .form-control {
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        padding: 16px;
+        font-size: 16px;
+        background-color: #f9f9f9;
+        transition: all 0.3s ease;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .formulario-com-borda .form-control:focus {
+        outline: none;
+        border-color: #d32f2f;
+        box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.2);
+        background-color: #fff;
+    }
+
+    .formulario-com-borda .form-control::placeholder {
+        color: #999;
+    }
+
+    /* Container do Email com Ícone */
+    .formulario-com-borda #email {
+        display: block;
+        width: 100%;
+        margin: 15px 0;
+        position: relative;
+    }
+
+    .fa-envelope {
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #999;
+        z-index: 2;
+    }
+
+    .formulario-com-borda #email input {
+        padding-left: 40px;
+    }
+
+    /* Container do Botão Centralizado */
+    .btn-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 35px;
+        width: 100%;
+    }
+
+    /* Botão Estilizado */
+    .btn-danger {
+        background: linear-gradient(135deg, #d32f2f 0%, #b71c1c 100%);
+        color: white;
+        border: none;
+        padding: 16px 40px;
+        border-radius: 10px;
+        font-size: 18px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(183, 28, 28, 0.3);
+        letter-spacing: 0.5px;
+        position: relative;
+        overflow: hidden;
+        width: 200px;
+        text-align: center;
+    }
+
+    .btn-danger:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 7px 20px rgba(183, 28, 28, 0.4);
+    }
+
+    .btn-danger:active {
+        transform: translateY(1px);
+    }
+
+    .btn-danger::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: 0.5s;
+    }
+
+    .btn-danger:hover::before {
+        left: 100%;
+    }
+
+    /* Estilo responsivo */
+    @media (max-width: 768px) {
+        .formulario-com-borda {
+            padding: 25px 20px;
+        }
+        
+        .formulario-com-borda h1 {
+            font-size: 26px;
+        }
+        
+        .btn-danger {
+            width: 100%;
+            padding: 14px;
+        }
+    }

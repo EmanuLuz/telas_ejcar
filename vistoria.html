@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vistoria</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/vistoria.css">
+</head>
+<body>
+    <div class="formulario-com-borda">
+        <h1>Vistoria Veicular</h1>
+        <hr>
+        
+        <b>O veículo chegou com:</b>
+        <p>Selecione os itens presentes:</p>
+
+        <div class="checkbox-personalizado">
+            <input type="checkbox" id="boxpneu">
+            <label for="boxpneu">Pneu</label>
+        </div>
+        <div class="checkbox-personalizado">
+            <input type="checkbox" id="boxstep">
+            <label for="boxstep">Step</label>
+        </div>
+        <div class="checkbox-personalizado">
+            <input type="checkbox" id="boxmacaco">
+            <label for="boxmacaco">Macaco</label>
+        </div>
+        <div class="checkbox-personalizado">
+            <input type="checkbox" id="boxchave">
+            <label for="boxchave">Chave de Roda</label>
+        </div>
+        
+        <b>Outros itens:</b>
+        <textarea id="descricao" placeholder="Ex: óculos, bolsa, sacola, documentos..."></textarea>
+
+        <div class="termo-aceitacao">
+            <div class="termo-titulo">Termo de Aceitação</div>
+            <div class="termo-texto">
+                Eu, proprietário do veículo [Marca e Modelo do Veículo], placa [Placa do Veículo], 
+                declaro, para todos os fins de direito, que concordo e atesto que o meu veículo 
+                entrou nas instalações da oficina EJCAR com os seguintes objetos em seu interior. 
+                Compreendo que esta lista representa os itens presentes no veículo no momento da 
+                sua entrada na oficina. Cascavel-Paraná!
+            </div>
+            
+            <div class="checkbox-personalizado" style="justify-content: center;">
+                <input type="checkbox" id="termoCheckbox">
+                <label for="termoCheckbox">Eu li e concordo com as condições apresentadas</label>
+            </div>
+        </div>
+
+        <div class="signature-container">
+            <div class="signature-header">
+                <h3><i class="fas fa-signature"></i> Assinatura Digital</h3>
+                <button type="button" class="clear-btn" id="clearSignature">Limpar Assinatura</button>
+            </div>
+            <canvas id="signaturePad" width="500" height="200"></canvas>
+            <div class="signature-footer">
+        </div>
+
+   
+        <div class="btn-container">
+            <button class="btn-danger" id="concluirBtn">Concluir</button>
+        </div>
+    </div>
+   </body>
+   <script src="js/vistoria.js"></script>
+</html>

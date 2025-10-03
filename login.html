@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Oficina Mecânica</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    <div class="login-container">
+        <h1>Login</h1>
+        <hr>
+        
+        <div class="input-group">
+            <label for="usuario">Usuário:</label>
+            <input type="text" id="usuario" placeholder="Digite seu nome de usuário">
+        </div>
+        
+        <div class="input-group">
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" placeholder="Digite sua senha">
+        </div>
+        
+        <div class="input-group">
+            <label for="email">Email:</label>
+            <div class="email-input-container">
+                <i class="fas fa-envelope email-icon"></i>
+                <input type="email" id="email" class="email-input" placeholder="you@example.com">
+            </div>
+        </div>
+        
+        <p class="links">Esqueci minha senha</p>
+        
+        <button class="btn btn-primary" id="entrar" type="submit">
+            <i class="fas fa-user-cog"></i> Entrar
+        </button>
+        
+        <p class="links">Não é cadastrado ainda?</p>
+        
+        <button class="btn btn-secondary" id="criarconta" onclick="criarconta()">
+            <i class="fas fa-user-plus"></i> Criar Conta
+        </button>
+        
+        <div class="user-types">
+            <div class="user-type">
+                <i class="fas fa-user-shield"></i>
+                <span>Administrador</span>
+            </div>
+            <div class="user-type">
+                <i class="fas fa-user-tie"></i>
+                <span>Funcionário</span>
+            </div>
+            <div class="user-type">
+                <i class="fas fa-user"></i>
+                <span>Cliente</span>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

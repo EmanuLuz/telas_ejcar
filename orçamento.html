@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Orçamento</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+       
+        body {
+            background: white;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+       
+        .container {
+            width: 100%;
+            max-width: 700px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            border: 1px solid #eee;
+        }
+       
+        .header {
+            background: #c0392b; /* Vermelho mantido apenas no cabeçalho */
+            color: white;
+            padding: 20px; /* Reduzi um pouco o padding */
+            text-align: center;
+            position: relative;
+        }
+       
+        .header h1 {
+            font-size: 1.6rem; /* Diminuí o tamanho da fonte */
+            font-weight: 600; /* Reduzi o peso da fonte */
+            margin-bottom: 5px;
+        }
+       
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #e74c3c, #c0392b);
+        }
+       
+        .form-container {
+            padding: 30px;
+        }
+       
+        .section-title {
+            font-size: 1.4rem;
+            color: #333;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+       
+        .section-title i {
+            margin-right: 10px;
+            color: #333; /* Ícones pretos */
+        }
+       
+        .form-group {
+            margin-bottom: 25px;
+        }
+       
+        .input-group {
+            margin-bottom: 20px;
+        }
+       
+        .form-label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #444;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+        }
+       
+        .form-label i {
+            margin-right: 10px;
+            color: #333; /* Ícones pretos */
+        }
+       
+        .form-control {
+            width: 100%;
+            padding: 15px 15px 15px 45px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background-color: #f9f9f9;
+        }
+       
+        .input-icon {
+            position: relative;
+        }
+       
+        .input-icon i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #333; /* Ícones pretos */
+            font-size: 18px;
+        }
+       
+        .form-control:focus {
+            outline: none;
+            border-color: #c0392b; /* Borda vermelha no foco */
+            background-color: white;
+            box-shadow: 0 0 0 3px rgba(192, 57, 43, 0.2);
+        }
+       
+        /* Estilo específico para a linha de produtos */
+        .product-row {
+            display: flex;
+            align-items: flex-end;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+       
+        .product-input {
+            flex: 1;
+        }
+       
+        .btn {
+            padding: 12px 20px;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            height: 51px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+       
+        .btn-add {
+            background: linear-gradient(135deg, #000000 0%, #000000 100%); /* Verde para o botão */
+            box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
+            white-space: nowrap;
+        }
+       
+        .btn-add:hover {
+            background: linear-gradient(135deg, #219653 0%, #1e8449 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(39, 174, 96, 0.4);
+        }
+       
+        .btn-submit {
+            display: block;
+            width: 100%;
+            padding: 16px;
+            margin-top: 30px;
+            font-size: 1.1rem;
+            background: linear-gradient(135deg, #c0392b 0%, #a23526 100%); /* Vermelho para enviar */
+            box-shadow: 0 4px 15px rgba(192, 57, 43, 0.3);
+        }
+       
+        .btn-submit:hover {
+            background: linear-gradient(135deg, #a23526 0%, #8a2b20 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(192, 57, 43, 0.4);
+        }
+       
+        .btn:active {
+            transform: translateY(0);
+        }
+       
+        .footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 0.85rem;
+            color: #7f8c8d;
+            border-top: 1px solid #eee;
+            background: #f9f9f9;
+        }
+       
+        @media (max-width: 768px) {
+            .container {
+                border-radius: 10px;
+            }
+           
+            .form-container {
+                padding: 20px;
+            }
+           
+            .input-group {
+                min-width: 100%;
+            }
+           
+            .product-row {
+                flex-direction: column;
+                align-items: stretch;
+            }
+           
+            .btn {
+                width: 100%;
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1><i class="fas fa-file-invoice-dollar"></i> Sistema de Orçamento</h1>
+        </div>
+       
+        <div class="form-container">
+            <form id="budget-form" action="/action_page.php">
+                <h2 class="section-title"><i class="fas fa-car"></i> Informações do Veículo</h2>
+               
+                <div class="form-group">
+                    <div class="input-group">
+                        <label for="chassi" class="form-label"><i class="fas fa-barcode"></i> Chassi:</label>
+                        <div class="input-icon">
+                            <i class="fas fa-barcode"></i>
+                            <input type="text" class="form-control" id="chassi" placeholder="Digite o número do chassi" name="chassi">
+                        </div>
+                    </div>
+                   
+                    <div class="input-group">
+                        <label for="placa" class="form-label"><i class="fas fa-car"></i> Placa:</label>
+                        <div class="input-icon">
+                            <i class="fas fa-car"></i>
+                            <input type="text" class="form-control" id="placa" placeholder="Digite a placa do veículo" name="placa">
+                        </div>
+                    </div>
+                </div>
+                <div class="product-row">
+                    <div class="product-input">
+                        <label for="product-name" class="form-label">Produto:</label>
+                        <div class="input-icon">
+                            <i class="fas fa-box"></i>
+                            <input type="text" class="form-control" id="product-name" placeholder="Nome do produto ou serviço">
+                        </div>
+                    </div>
+                   
+                    <button type="button" class="btn btn-add" id="add-product-btn">
+                    Mais Produtos
+                    </button>
+                </div>
+               
+                <div class="input-group">
+                    <label for="product-price" class="form-label">Mão de obra:</label>
+                    <div class="input-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                        <input type="number" class="form-control" id="product-price" placeholder="0,00" min="0" step="0.01">
+                    </div>
+                </div>
+               
+                <button type="submit" class="btn btn-submit">
+                    <i class="fas fa-check-circle"></i> Finalizar Orçamento
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const addProductBtn = document.getElementById('add-product-btn');
+           
+            addProductBtn.addEventListener('click', function() {
+                alert('Funcionalidade "Mais Produtos" seria implementada aqui!');
+              
+            });
+           
+         
+            document.getElementById('budget-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Orçamento finalizado com sucesso!');
+            });
+        });
+    </script>
+</body>
+</html>
