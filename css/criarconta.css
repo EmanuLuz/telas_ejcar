@@ -103,7 +103,7 @@
 
     /* Botão Estilizado */
     .btn-danger {
-        background: linear-gradient(135deg, #d32f2f 0%, #b71c1c 100%);
+        background: linear-gradient(135deg, #d32f2f 0%, rgb(183, 28, 28) 100%);
         color: white;
         border: none;
         padding: 16px 40px;
