@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EJ CAR - Início</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Variáveis de Cores */
+        :root {
+            --primary-red: rgb(183, 28, 28); /* VERMELHO ESPECÍFICO */
+            --background-dark: #121212; /* Fundo principal (Preto) */
+            --text-light: #f5f5f5; /* Branco/Branco Sujo */
+        }
+        
+        /* Reset e Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Open Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transition: all 0.3s ease;
+        }
+        
+        body {
+            background-color: var(--background-dark); 
+            color: var(--text-light);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ----------------------- HEADER (VERMELHO SÓLIDO) ----------------------- */
+        .header {
+            background-color: var(--primary-red); /* Fundo Vermelho */
+            padding: 25px 50px; 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid var(--background-dark); 
+            flex-wrap: wrap;
+            position: relative;
+        }
+        
+        .logo-container {
+            position: relative;
+            cursor: default;
+            display: flex;
+            flex-direction: column; 
+            align-items: flex-start;
+        }
+        
+        /* LOGO EJ CAR BEM GRANDE */
+        .logo {
+            font-size: 3.5rem; 
+            font-weight: 800;
+            color: var(--text-light); 
+            text-decoration: none;
+            display: block;
+            margin-bottom: 4px; 
+        }
+        
+        /* SUBTÍTULO VISÍVEL */
+        .logo-subtitle {
+            display: block; 
+            white-space: nowrap;
+            font-size: 1rem; 
+            font-weight: 500;
+            color: var(--text-light); 
+        }
+
+        /* LINKS DE AUTENTICAÇÃO E ÍCONE HOME */
+        .user-auth {
+            display: flex;
+            gap: 20px; 
+            align-items: center;
+        }
+
+        /* ESTILO BÁSICO DOS LINKS */
+        .user-auth a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 700;
+            padding: 10px 18px; 
+            border-radius: 5px;
+            border: 2px solid transparent; 
+            font-size: 1.2rem; 
+            display: flex;
+            align-items: center;
+        }
+        
+        /* ESTILO DO ÍCONE DA CASINHA SEPARADA */
+        .home-icon {
+            font-size: 1.4rem; 
+            color: var(--text-light);
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+        
+        /* HOVER: Fundo preto e borda/texto branco para contraste no header vermelho */
+        .home-icon:hover {
+            color: var(--text-light);
+            background-color: var(--background-dark); 
+            border-color: var(--background-dark);
+            transform: scale(1.1); 
+        }
+        
+        /* HOVER NOS LINKS: Fundo preto e borda/texto branco para contraste no header vermelho */
+        .user-auth a:hover {
+            color: var(--text-light); 
+            background-color: var(--background-dark); 
+            border-color: var(--background-dark);
+            transform: scale(1.05);
+        }
+
+        /* ----------------------- SUB-NAVEGAÇÃO (BARRA DE OPÇÕES PRINCIPAIS) ----------------------- */
+        .sub-nav {
+            background-color: #0d0d0d;
+            padding: 15px 50px;
+            border-bottom: 1px solid #333;
+        }
+
+        .main-options {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .main-options a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 5px 0;
+            border-bottom: 2px solid transparent;
+        }
+        
+        /* HOVER: Cor do texto e borda é o Vermelho Específico (barra superior) */
+        .main-options a:hover {
+            color: var(--primary-red);
+            border-bottom-color: var(--primary-red);
+        }
+
+        /* ----------------------- MAIN CONTENT (ÁREA PRINCIPAL COM IMAGEM) ----------------------- */
+        .main-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            /* Aumentei o padding para dar mais espaço à imagem */
+            padding: 100px 40px; 
+            text-align: center;
+            
+            /* === PROPRIEDADES PARA A IMAGEM DE FUNDO COBRIR A ÁREA === */
+            background-image: url('WhatsApp Image 2025-10-03 at 11.10.03.jpeg');
+            background-size: cover; /* Faz a imagem cobrir todo o fundo da div */
+            background-position: center; /* Centraliza a imagem */
+            background-repeat: no-repeat; /* Impede a repetição */
+            
+            /* Overlay escuro para garantir que o texto seja legível */
+            background-blend-mode: darken;
+            background-color: rgba(0, 0, 0, 0.4); /* Cor de fundo misturada com a imagem */
+        }
+        
+        /* Estilo da mensagem sobre a imagem */
+        .hero-message {
+            font-size: 2.5rem;
+            color: var(--text-light);
+            font-weight: 700;
+            /* Sombra para destacar o texto sobre a imagem de fundo */
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+            max-width: 90%;
+        }
+
+        /* ----------------------- FOOTER (FUNDO VERMELHO SÓLIDO) ----------------------- */
+        .footer {
+            background-color: var(--primary-red); /* Fundo Vermelho */
+            color: var(--text-light);
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-info {
+            display: flex;
+            gap: 40px; 
+        }
+        
+        .footer-section h4 {
+            font-size: 1rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        
+        /* ÍCONES SOCIAIS NA DIREITA */
+        .social-icons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-icons a {
+            font-size: 1.5rem;
+            color: var(--text-light);
+            text-decoration: none;
+        }
+
+        /* HOVER: Ícones brancos para contraste no fundo vermelho */
+        .social-icons a:hover {
+            color: var(--text-light); 
+            transform: scale(1.15);
+        }
+        
+        /* Responsividade */
+        @media (max-width: 992px) {
+             .logo {
+                font-size: 2.5rem;
+            }
+            .logo-subtitle {
+                font-size: 0.8rem;
+            }
+            .user-auth a {
+                font-size: 1rem;
+                padding: 8px 12px;
+            }
+             .home-icon {
+                font-size: 1.2rem;
+            }
+            .hero-message {
+                font-size: 2rem;
+            }
+        }
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .user-auth {
+                width: 100%;
+                justify-content: center;
+            }
+            .sub-nav {
+                padding: 10px 20px;
+            }
+            .main-options {
+                gap: 15px;
+            }
+            .hero-message {
+                font-size: 1.5rem;
+            }
+            .footer {
+                flex-direction: column;
+                text-align: center;
+            }
+            .footer-info {
+                margin-bottom: 20px;
+                gap: 20px;
+            }
+            .social-icons {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <header class="header">
+        <div class="logo-container">
+            <a href="#" class="logo">EJ CAR</a>
+            <span class="logo-subtitle">Chapeação - Pintura & Estética Automotiva</span>
+        </div>
+
+        <div class="user-auth">
+            <a href="#" class="home-icon" title="Página Inicial"><i class="fas fa-home"></i></a>
+
+            <a href="criarconta.html">Criar Conta</a>
+            <a href="login.html">Entrar</a>
+        </div>
+    </header>
+
+    <nav class="sub-nav">
+        <ul class="main-options">
+            <li><a href="orçamento.html">ORÇAMENTO</a></li>
+            <li><a href="cadastrar_veiculo.html">CADASTRAR VEÍCULO</a></li>
+            <li><a href="vistoria.html">VISTORIA</a></li>
+            <li><a href="agendamento.html">AGENDAMENTO</a></li>
+        </ul>
+    </nav>
+        <div></div>
+
+    <main class="main-content">
+        
+    </main>
+
+    <footer class="footer">
+        
+        <div class="footer-info">
+            <div class="footer-section">
+                <h4>SOCIAL</h4>
+            </div>
+            <div class="footer-section">
+                <h4>MENU</h4>
+            </div>
+        </div>
+
+        <div class="social-icons">
+            <a href="#" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" title="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+    </footer>
+
+</body>
+</html>

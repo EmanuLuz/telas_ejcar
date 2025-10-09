@@ -1,0 +1,37 @@
+!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Serviço</title>
+<link rel="stylesheet" href="css/serviço.css">
+</head>
+<body>
+  <div class="container">
+    <h2>SERVIÇO</h2>
+    <div class="linha-vermelha"></div>
+
+    <form>
+      <label for="funcionario">Funcionário:</label>
+      <input type="text" id="funcionario" name="funcionario" placeholder="Digite aqui" required minlength="3" />
+
+      <label for="data">Data Serviço:</label>
+      <input type="date" id="data" name="data" required />
+
+      <label>O serviço foi realizado?</label>
+      <div class="radio-group">
+        <div class="radio-option">
+          <input type="radio" id="sim" name="realizado" value="sim" required />
+          <label for="sim">Sim</label>
+        </div>
+        <div class="radio-option">
+          <input type="radio" id="nao" name="realizado" value="nao" />
+          <label for="nao">Não</label>
+        </div>
+      </div>
+
+      <button type="submit">Continuar</button>
+    </form>
+  </div>
+</body>
+</html>
