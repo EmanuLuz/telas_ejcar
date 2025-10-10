@@ -1,0 +1,223 @@
+/* Variável de cor atualizada para facilitar a manutenção */
+        :root {
+            --primary-red: rgb(183, 28, 28); /* NOVO VERMELHO */
+            --light-red-shadow: rgba(183, 28, 28, 0.3); /* Sombra para o botão */
+            --light-red-focus: rgba(183, 28, 28, 0.2); /* Foco para o input */
+        }
+       
+        /* Estilos Gerais */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #000000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            margin: 0;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+            /* Borda vermelha SÓ no topo */
+            border-top: 5px solid var(--primary-red);
+        }
+
+
+        /* Título */
+        .header-produto {
+            color: var(--primary-red);
+            text-align: center;
+            margin-bottom: 25px;
+            font-weight: 700;
+            font-size: 32px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+           
+            position: relative;
+            padding-bottom: 20px;
+        }
+       
+        /* LINHA PERSONALIZADA (EFEITO GRADIENTE) */
+        .header-produto::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            right: 0;
+            height: 2px;
+           
+            /* Gradiente: Transparente nas pontas, NOVO Vermelho no centro */
+            background: linear-gradient(
+                to right,
+                transparent 0%,
+                var(--primary-red) 25%,
+                var(--primary-red) 75%,
+                transparent 100%
+            );
+        }
+       
+        /* Divisor entre campos */
+        .form-group {
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        /* Remove a linha do último form-group */
+        .form-group:last-of-type {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        /* Labels dos Campos */
+        .form-group label {
+            display: block;
+            color: #333;
+            margin-bottom: 10px;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        /* Campos de Input */
+        .input-group {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .currency-symbol {
+            position: absolute;
+            left: 15px;
+            color: #666;
+            font-weight: 600;
+            z-index: 2;
+        }
+
+        .input-value {
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            /* Padding vertical reduzido para afinar o input */
+            padding: 10px 16px 10px 40px;
+            font-size: 16px;
+            background-color: #f9f9f9;
+            transition: all 0.3s ease;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .input-value:focus {
+            outline: none;
+            /* NOVO Vermelho e sombra para o foco */
+            border-color: var(--primary-red);
+            box-shadow: 0 0 0 3px var(--light-red-focus);
+            background-color: #fff;
+        }
+
+        .input-value::placeholder {
+            color: #999;
+        }
+
+        /* Textarea */
+        textarea {
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            /* Padding reduzido para afinar o textarea */
+            padding: 10px;
+            font-size: 16px;
+            background-color: #f9f9f9;
+            transition: all 0.3s ease;
+            width: 100%;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        textarea:focus {
+            outline: none;
+            /* NOVO Vermelho e sombra para o foco */
+            border-color: var(--primary-red);
+            box-shadow: 0 0 0 3px var(--light-red-focus);
+            background-color: #fff;
+        }
+
+        textarea::placeholder {
+            color: #999;
+        }
+
+        /* Container do Botão Centralizado */
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 35px;
+            width: 100%;
+        }
+
+        /* Botão Estilizado */
+        button[type="submit"] {
+            /* NOVO Vermelho no gradiente do botão */
+            background: linear-gradient(135deg, var(--primary-red) 0%, var(--primary-red) 100%);
+            color: white;
+            border: none;
+            padding: 16px 40px;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            /* NOVO Vermelho na sombra do botão */
+            box-shadow: 0 4px 15px var(--light-red-shadow);
+            letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
+            width: 200px;
+            text-align: center;
+        }
+
+        button[type="submit"]:hover {
+            transform: translateY(-3px);
+            /* NOVO Vermelho na sombra do hover */
+            box-shadow: 0 7px 20px var(--light-red-shadow);
+        }
+
+        button[type="submit"]:active {
+            transform: translateY(1px);
+        }
+
+        button[type="submit"]::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        button[type="submit"]:hover::before {
+            left: 100%;
+        }
+
+        /* Estilo responsivo */
+        @media (max-width: 768px) {
+            .container {
+                padding: 25px 20px;
+            }
+           
+            .header-produto {
+                font-size: 26px;
+            }
+           
+            button[type="submit"] {
+                width: 100%;
+                padding: 14px;
+            }
+        }
