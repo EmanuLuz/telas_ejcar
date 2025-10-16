@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamento</title>
+    <link rel="stylesheet" href="css/agendamento.css">
+</head>
+<body>
+    <div class="formulario-com-borda">
+        <h1>Agendamento</h1>
+        <hr>
+
+        <form>
+            <label for="entradaVeiculo"><b>Data da entrada do veículo:</b></label>
+            <input type="datetime-local" id="entradaVeiculo" class="form-control">
+
+            <label for="saidaVeiculo"><b>Data da saída do veículo:</b></label>
+            <input type="datetime-local" id="saidaVeiculo" class="form-control">
+
+            <b>Tem seguradora?</b>
+            <div class="checkbox-container">
+                <input type="radio" name="temSeguradora" id="seguradoraSim" value="Sim">
+                <label for="seguradoraSim">Sim</label>
+
+                <input type="radio" name="temSeguradora" id="seguradoraNao" value="Não">
+                <label for="seguradoraNao">Não</label>
+            </div>
+
+            <label for="nomeSeguradora"><b>Nome da seguradora:</b></label>
+            <input type="text" id="nomeSeguradora" class="form-control" placeholder="Digite o nome da seguradora">
+
+            <label for="numeroSeguradora"><b>Número da seguradora:</b></label>
+            <input type="tel" id="numeroSeguradora" class="form-control" placeholder="(00) 00000-0000">
+
+            <div class="btn-container">
+                <button type="button" class="btn-danger" onclick="agendar()">Concluir</button>
+            </div>
+        </form>
+    </div>
+    <script src="js/agendamento.js" defer></script>
+</body>

@@ -8,17 +8,13 @@
     <link rel="stylesheet" href="css/vistoria.css">
 </head>
 <body>
-    <div class="formulario-com-borda">
+ <div class="formulario-com-borda">
         <h1>Vistoria Veicular</h1>
         <hr>
         
         <b>O veículo chegou com:</b>
         <p>Selecione os itens presentes:</p>
 
-        <div class="checkbox-personalizado">
-            <input type="checkbox" id="boxpneu">
-            <label for="boxpneu">Pneu</label>
-        </div>
         <div class="checkbox-personalizado">
             <input type="checkbox" id="boxstep">
             <label for="boxstep">Step</label>
@@ -38,7 +34,9 @@
         <div class="termo-aceitacao">
             <div class="termo-titulo">Termo de Aceitação</div>
             <div class="termo-texto">
-                Eu, proprietário do veículo [Marca e Modelo do Veículo], placa [Placa do Veículo], 
+                Eu, <input type="text" class="campo-termo-input" placeholder="Nome do Proprietário" id="proprietario">, 
+                proprietário do veículo <input type="text" class="campo-termo-input" placeholder="Marca e Modelo do Veículo" id="marcaModelo">, 
+                placa <input type="text" class="campo-termo-input" placeholder="Placa do Veículo" id="placa">, 
                 declaro, para todos os fins de direito, que concordo e atesto que o meu veículo 
                 entrou nas instalações da oficina EJCAR com os seguintes objetos em seu interior. 
                 Compreendo que esta lista representa os itens presentes no veículo no momento da 
@@ -60,7 +58,6 @@
             <div class="signature-footer">
         </div>
 
-   
         <div class="btn-container">
             <button class="btn-danger" id="concluirBtn">Concluir</button>
         </div>
