@@ -161,19 +161,19 @@ body {
 }
 
 /* ESTILOS PARA OS CAMPOS NO TERMO */
-.campo-termo-input {
+.campo-termo-label {
     display: inline-block;
     min-width: 150px;
-    background-color: white;
-    border: 1px solid #ddd;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
     border-radius: 4px;
     padding: 4px 8px;
     margin: 0 2px;
-    color: #333;
+    color: #495057;
+    font-weight: 600;
     font-size: 16px;
-    font-family: inherit;
-    transition: all 0.3s ease;
-    vertical-align: middle;
+    text-align: center;
+    cursor: default;
 }
 
 .campo-termo-input:focus {

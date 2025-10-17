@@ -1,0 +1,152 @@
+/* Estilo geral da página */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Container principal do formulário */
+.container {
+    width: 100%;
+    max-width: 600px;
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    border-top: 5px solid #d32f2f;
+    box-sizing: border-box;
+}
+
+/* Título */
+.container h1 {
+    color: #d32f2f;
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 700;
+    font-size: 28px;
+    letter-spacing: 1px;
+}
+
+.container h1 {
+    color: #d32f2f;
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 700;
+    font-size: 28px;
+    letter-spacing: 1px;
+}
+
+.container hr {
+    border: none;
+    height: 2px;
+    background: linear-gradient(to right, transparent, #d32f2f, transparent);
+    margin: 20px 0 30px;
+}
+
+/* Grupos de formulário */
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* Rótulos */
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+/* Campo com ícone */
+.input-icon {
+    position: relative;
+}
+
+.input-icon i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+    font-size: 16px;
+}
+
+/* Campos de input */
+.input-icon input {
+    width: 100%;
+    padding: 14px 14px 14px 45px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 15px;
+    background-color: #f9f9f9;
+    transition: 0.3s ease;
+    box-sizing: border-box;
+}
+
+.input-icon input:focus {
+    outline: none;
+    border-color: #d32f2f;
+    background-color: #fff;
+    box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.2);
+}
+
+.input-icon input::placeholder {
+    color: #aaa;
+}
+
+/* Botão */
+.button {
+    background: linear-gradient(135deg, #d32f2f 0%, rgb(183, 28, 28) 100%);
+    color: white;
+    border: none;
+    padding: 14px 30px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(183, 28, 28, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 25px auto 0;
+    justify-content: center;
+    width: 100%;
+    max-width: 250px;
+}
+
+.button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 20px rgba(183, 28, 28, 0.4);
+}
+
+.button:active {
+    transform: translateY(1px);
+}
+
+/* Ícone dentro do botão */
+.button i {
+    font-size: 16px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .container {
+        padding: 25px 20px;
+    }
+
+    .container h1 {
+        font-size: 24px;
+    }
+
+    .button {
+        padding: 12px;
+        font-size: 15px;
+        max-width: 100%;
+    }
+}

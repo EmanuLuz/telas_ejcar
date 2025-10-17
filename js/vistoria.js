@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const clearBtn = document.getElementById('clearSignature');
     const ctx = canvas.getContext('2d');
     
-    // Configuração inicial do canvas
     function initCanvas() {
         const rect = canvas.getBoundingClientRect();
         canvas.width = rect.width;
@@ -17,7 +16,6 @@ document.addEventListener('DOMContentLoaded', function() {
         ctx.fillRect(0, 0, canvas.width, canvas.height);
     }
     
-    // Inicializar o canvas
     initCanvas();
     
     let isDrawing = false;
@@ -29,7 +27,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const pos = getPosition(e);
         [lastX, lastY] = [pos.x, pos.y];
         
-        // Prevenir comportamento padrão para touch
         e.preventDefault();
     }
     
@@ -44,7 +41,6 @@ document.addEventListener('DOMContentLoaded', function() {
         
         [lastX, lastY] = [pos.x, pos.y];
         
-        // Prevenir comportamento padrão para touch
         e.preventDefault();
     }
     
@@ -74,28 +70,60 @@ document.addEventListener('DOMContentLoaded', function() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.fillStyle = '#f9f9f9';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
-        ctx.fillStyle = '#000'; // Reset para cor padrão
+        ctx.fillStyle = '#000'; 
     }
     
-    // Event listeners para mouse
     canvas.addEventListener('mousedown', startDrawing);
     canvas.addEventListener('mousemove', draw);
     canvas.addEventListener('mouseup', stopDrawing);
     canvas.addEventListener('mouseout', stopDrawing);
     
-    // Event listeners para touch
     canvas.addEventListener('touchstart', startDrawing, { passive: false });
     canvas.addEventListener('touchmove', draw, { passive: false });
     canvas.addEventListener('touchend', stopDrawing);
     
-    // Botão limpar
     clearBtn.addEventListener('click', clearSignature);
-    
-    // Redimensionar canvas quando a janela for redimensionada
     window.addEventListener('resize', initCanvas);
+    
+    function temAssinatura() {
+        const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        for (let i = 0; i < imageData.data.length; i += 4) {
+            if (imageData.data[i + 3] !== 0) {
+                return true;
+            }
+        }
+        return false;
+    }
     
     const concluirBtn = document.getElementById('concluirBtn');
     concluirBtn.addEventListener('click', function() {
-        alert('Vistoria registrada com sucesso! Obrigado.');
+    
+        if (!document.getElementById('termoCheckbox').checked) {
+            alert('Você deve marcar "Eu li e concordo com as condições apresentadas" para concluir a vistoria.');
+            return;
+        }
+        
+        if (!temAssinatura()) {
+            alert('Por favor, assine o termo de aceitação antes de salvar.');
+            return;
+        }
+        
+        const dados = {
+            step: document.getElementById('boxstep').checked ? 'Possui' : 'Não possui',
+            macaco: document.getElementById('boxmacaco').checked ? 'Possui' : 'Não possui',
+            chave: document.getElementById('boxchave').checked ? 'Possui' : 'Não possui',
+            outrosItens: document.getElementById('descricao').value || 'Nenhum',
+            proprietario: document.getElementById('proprietario').value,
+            marcaModelo: document.getElementById('marcaModelo').value,
+            placa: document.getElementById('placa').value,
+            termoAceito: 'Aceito',
+            data: new Date().toLocaleString()
+        };
+        
+        localStorage.setItem('vistoria', JSON.stringify(dados));
+        
+        console.log('Dados da Vistoria:', dados);
+        
+        alert('Vistoria salva com sucesso!');
     });
 });
