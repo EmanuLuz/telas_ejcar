@@ -82,48 +82,84 @@ document.addEventListener('DOMContentLoaded', function() {
     canvas.addEventListener('touchmove', draw, { passive: false });
     canvas.addEventListener('touchend', stopDrawing);
     
+                   // Botão limpar//
     clearBtn.addEventListener('click', clearSignature);
-    window.addEventListener('resize', initCanvas);
     
-    function temAssinatura() {
-        const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-        for (let i = 0; i < imageData.data.length; i += 4) {
-            if (imageData.data[i + 3] !== 0) {
-                return true;
-            }
-        }
-        return false;
-    }
+    window.addEventListener('resize', initCanvas);
     
     const concluirBtn = document.getElementById('concluirBtn');
     concluirBtn.addEventListener('click', function() {
-    
-        if (!document.getElementById('termoCheckbox').checked) {
-            alert('Você deve marcar "Eu li e concordo com as condições apresentadas" para concluir a vistoria.');
-            return;
-        }
-        
-        if (!temAssinatura()) {
-            alert('Por favor, assine o termo de aceitação antes de salvar.');
-            return;
-        }
-        
-        const dados = {
-            step: document.getElementById('boxstep').checked ? 'Possui' : 'Não possui',
-            macaco: document.getElementById('boxmacaco').checked ? 'Possui' : 'Não possui',
-            chave: document.getElementById('boxchave').checked ? 'Possui' : 'Não possui',
-            outrosItens: document.getElementById('descricao').value || 'Nenhum',
-            proprietario: document.getElementById('proprietario').value,
-            marcaModelo: document.getElementById('marcaModelo').value,
-            placa: document.getElementById('placa').value,
-            termoAceito: 'Aceito',
-            data: new Date().toLocaleString()
-        };
-        
-        localStorage.setItem('vistoria', JSON.stringify(dados));
-        
-        console.log('Dados da Vistoria:', dados);
-        
-        alert('Vistoria salva com sucesso!');
+        alert('Vistoria registrada com sucesso! Obrigado.');
     });
-});
+}); 
+
+const botaoConcluir = document.getElementById('botaoconcluir');
+    function mostrarErro(idElemento, mensagem) {
+    document.getElementById(idElemento).textContent = mensagem;
+}
+
+function limparErros() {
+    mostrarErro('erro-step', '');
+    mostrarErro('erro-macaco', '');
+    mostrarErro('erro-chave', '');
+}
+
+function validarCheckbox() {
+    limparErros();
+
+    let step = document.getElementById("boxstep").checked;
+    let macaco = document.getElementById("boxmacaco").checked;
+    let chave = document.getElementById("boxchave").checked;
+    let descricao = document.getElementById("descricao").value;
+    let proprietario = document.getElementById("proprietario").value;
+    let marcaModelo = document.getElementById("marcaModelo").value;
+    let placa = document.getElementById("placa").value;
+    let termo = document.getElementById("termoAceite").checked;
+
+    console.log("Step:", step);
+    console.log("Macaco:", macaco);
+    console.log("Chave de Roda:", chave);
+    console.log("Outros itens:", descricao);
+    console.log("Proprietário:", proprietario);
+    console.log("Marca/Modelo:", marcaModelo);
+    console.log("Placa:", placa);
+    console.log("Termo aceito:", termo);
+
+    let ok = true;
+
+    if (!step) {
+        mostrarErro('erro-step', 'Verifique se possui step para continuar.');
+        ok = false;
+    } 
+
+    if (!macaco) {
+        mostrarErro('erro-macaco', 'Verifique se possui macaco para continuar.');
+        ok = false;
+    } 
+
+    if (!chave) {
+        mostrarErro('erro-chave', 'Verifique se possui chave para continuar.');
+        ok = false;
+    } 
+
+        if (descricao.trim() === '') {
+        mostrarErro('erro-descricao', 'Descreva os outros itens!');
+        ok = false;
+    }
+
+    if (ok) {
+        alert('Formulário enviado com sucesso!');
+    }
+
+    if (!termo) {
+        mostrarErro('erro-termo', 'Aceite os termos para continuar!');
+        ok = false;
+    }
+
+    if (ok) {
+        alert('✅ Vistoria concluída com sucesso!');
+    }
+
+    return ok;
+}
+botaoConcluir.addEventListener('click', validarCheckbox);

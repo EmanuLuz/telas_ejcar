@@ -326,3 +326,14 @@ body {
         font-size: 14px;
     }
 }
+
+/* Estilo para mensagens de erro */
+.erro {
+    color: #d32f2f;
+    font-size: 14px;
+    margin-top: 4px;
+    min-height: 18px; /* mantém espaço reservado */
+    font-weight: 600;
+}
+
+
