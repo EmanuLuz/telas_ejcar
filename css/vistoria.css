@@ -44,36 +44,15 @@ body {
     font-size: 16px;
 }
 
-.formulario-com-borda .form-control {
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    padding: 16px;
-    font-size: 16px;
-    background-color: #f9f9f9;
-    transition: all 0.3s ease;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.formulario-com-borda .form-control:focus {
-    outline: none;
-    border-color: #d32f2f;
-    box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.2);
-    background-color: #fff;
-}
-
-.formulario-com-borda .form-control::placeholder {
-    color: #999;
-}
-
 .checkbox-personalizado {
     display: flex;
     align-items: center;
-    margin-bottom: 15px;
-    padding: 12px;
-    border-radius: 8px;
+    margin-bottom: 5px;
+    padding: 8px 12px;
+    border-radius: 6px;
     transition: all 0.3s ease;
     cursor: pointer;
+    flex-wrap: wrap;
 }
 
 .checkbox-personalizado:hover {
@@ -113,6 +92,31 @@ body {
     cursor: pointer;
     font-size: 16px;
     color: #333;
+}
+
+.erro {
+    color: #d32f2f;
+    font-size: 14px;
+    margin-top: 2px;
+    margin-bottom: 3px;
+    font-weight: 600;
+    width: 100%;
+    text-align: left;
+    padding-left: 34px;
+    min-height: 16px;
+}
+
+.termo-aceitacao .erro {
+    text-align: center;
+    padding-left: 0;
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+
+#erro-descricao {
+    padding-left: 0;
+    margin-top: 3px;
+    margin-bottom: 5px;
 }
 
 .formulario-com-borda textarea {
@@ -160,8 +164,7 @@ body {
     margin-bottom: 20px;
 }
 
-/* ESTILOS PARA OS CAMPOS NO TERMO */
-.campo-termo-label {
+.campo-termo-input {
     display: inline-block;
     min-width: 150px;
     background-color: #f8f9fa;
@@ -170,10 +173,10 @@ body {
     padding: 4px 8px;
     margin: 0 2px;
     color: #495057;
-    font-weight: 600;
+    font-weight: 500;
     font-size: 16px;
     text-align: center;
-    cursor: default;
+    transition: all 0.3s ease;
 }
 
 .campo-termo-input:focus {
@@ -325,15 +328,15 @@ body {
         min-width: 120px;
         font-size: 14px;
     }
+    
+    .checkbox-personalizado {
+        padding: 6px 10px;
+        margin-bottom: 3px;
+    }
+    
+    .erro {
+        font-size: 13px;
+        padding-left: 30px;
+        margin-top: 1px;
+    }
 }
-
-/* Estilo para mensagens de erro */
-.erro {
-    color: #d32f2f;
-    font-size: 14px;
-    margin-top: 4px;
-    min-height: 18px; /* mantém espaço reservado */
-    font-weight: 600;
-}
-
-
